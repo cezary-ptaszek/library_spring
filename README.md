@@ -19,7 +19,7 @@ Basic project of the library with REST_API. It contains books which can be borro
     "id": 31,
     "title": "Dziady cz.III",
     "author": "Adam Mickiewicz",
-    "readerId": null
+    "reader": null
 }
 ```
 * GET all: /book/all
