@@ -105,6 +105,6 @@ public class ReaderController {
         }
         readerService.deleteById(id);
 
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.status(HttpStatus.OK).body("Deleted.");
     }
 }
