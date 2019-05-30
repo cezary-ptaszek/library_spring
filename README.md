@@ -6,6 +6,7 @@ Basic project of the library with REST_API. It contains books which can be borro
 * Java 8
 * Spring Boot 2.1.5
 * Spring Data JPA with Hibernate 5.3.10
+* JUnit 4.12
 * Maven 3.6.0
 * mySQL 8 running online
 * InteliJ IDEA 2018.3.2
