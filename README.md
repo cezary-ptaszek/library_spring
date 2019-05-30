@@ -1,6 +1,6 @@
 # Library
 ### Description
-Basic project of the library with REST_API. It contains books which can be borrowed by readers. Program includes basic CRUD functions. All data are saved in an external database.
+Basic project of the library with REST API. It contains books which can be borrowed by readers. Program includes basic CRUD functions. All data are saved in an external database.
 
 ## Technologies:
 * Java 8
@@ -9,7 +9,7 @@ Basic project of the library with REST_API. It contains books which can be borro
 * JUnit 4.12
 * Maven 3.6.0
 * mySQL 8 running online
-* InteliJ IDEA 2018.3.2
+* IntelliJ IDEA 2018.3.2
 * Git 2.20.1
 
 ## Endpoints:
