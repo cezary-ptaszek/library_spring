@@ -21,11 +21,11 @@ Basic project of the library with REST_API. It contains books which can be borro
     "readerId": null
 }
 ```
-* main: /book/all
-* get one: /book/{id}
-* create: /book/create
-* update: /book/update/{id}
-* delete: /book/delete/{id}
+* GET all: /book/all
+* GET one: /book/{id}
+* POST create: /book/create
+* POST update: /book/update/{id}
+* DELETE delete: /book/delete/{id}
 ##### Readers:
 ```json
 {
@@ -34,13 +34,13 @@ Basic project of the library with REST_API. It contains books which can be borro
 	"surname": "Kowalski"
 }
 ```
-* main: /reader/all
-* get one: /reader/{id}
-* create: /reader/create
-* borrow book: /reader/{readerId}/borrow/book/{bookId}
-* give back book: /reader/{readerId}/giveBack/book/{bookId}
-* update: /reader/update/{id}
-* delete: /reader/delete/{id}
+* GET all: /reader/all
+* GET one: /reader/{id}
+* POST create: /reader/create
+* POST borrow book: /reader/{readerId}/borrow/book/{bookId}
+* POST give back book: /reader/{readerId}/giveBack/book/{bookId}
+* POST update: /reader/update/{id}
+* DELETE delete: /reader/delete/{id}
 
 ## Compilation Command:
 * `mvn spring-boot:run`
