@@ -31,7 +31,7 @@ public class BookController {
     public ResponseEntity<Book> findById(@PathVariable Long id) {
         Optional<Book> book = bookService.findById(id);
         if (!book.isPresent()) {
-            ResponseEntity.badRequest().build();
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(book.get());
     }
