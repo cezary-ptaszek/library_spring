@@ -15,11 +15,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/book")
 @RequiredArgsConstructor
-public class BookController {
+class BookController {
 
     @Autowired
     private BookService bookService;
-
 
     @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks() {
@@ -29,11 +28,16 @@ public class BookController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> findById(@PathVariable Long id) {
+        ResponseEntity response;
+
         Optional<Book> book = bookService.findById(id);
         if (!book.isPresent()) {
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-        return ResponseEntity.status(HttpStatus.OK).body(book.get());
+        else{
+            response = ResponseEntity.status(HttpStatus.OK).body(book.get());
+        }
+        return response;
     }
 
 
@@ -45,20 +49,30 @@ public class BookController {
 
     @PostMapping("/update/{id}")
     public ResponseEntity<Book> update(@PathVariable Long id, @Valid @RequestBody Book book) {
+        ResponseEntity response;
+
         if (!bookService.findById(id).isPresent()) {
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(bookService.save(book));
+        else{
+            response = ResponseEntity.status(HttpStatus.CREATED).body(bookService.save(book));
+        }
+        return response;
     }
 
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
-        if (!bookService.findById(id).isPresent()) {
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        bookService.deleteById(id);
+        ResponseEntity response;
 
-        return ResponseEntity.status(HttpStatus.OK).body("Deleted.");
+        if (!bookService.findById(id).isPresent()) {
+            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        else{
+            bookService.deleteById(id);
+            response = ResponseEntity.status(HttpStatus.OK).body("Deleted.");
+        }
+
+        return response;
     }
 }

@@ -1,9 +1,13 @@
 package com.jcommerce.library.Entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name = "readers")
 public class Reader {
 
@@ -13,15 +17,6 @@ public class Reader {
     private Long id;
     private String name;
     private String surname;
-
-    public Reader(Long id, String name, String surname, Integer quantity) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-    }
-
-    public Reader() {
-    }
 
     public Long getId() {
         return id;
@@ -45,29 +40,5 @@ public class Reader {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Reader reader = (Reader) o;
-        return id.equals(reader.id) &&
-                Objects.equals(name, reader.name) &&
-                Objects.equals(surname, reader.surname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, surname);
-    }
-
-    @Override
-    public String toString() {
-        return "Reader{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
     }
 }

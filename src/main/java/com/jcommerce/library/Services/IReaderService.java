@@ -5,7 +5,7 @@ import com.jcommerce.library.Entity.Reader;
 import java.util.List;
 import java.util.Optional;
 
-public interface IReaderService {
+interface IReaderService {
 
     public List<Reader> findAll();
 
