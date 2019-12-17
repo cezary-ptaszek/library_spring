@@ -28,16 +28,8 @@ class BookController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> findById(@PathVariable Long id) {
-        ResponseEntity response;
-
         Optional<Book> book = bookService.findById(id);
-        if (!book.isPresent()) {
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        else{
-            response = ResponseEntity.status(HttpStatus.OK).body(book.get());
-        }
-        return response;
+        return book.map(value -> ResponseEntity.status(HttpStatus.OK).body(value)).orElseGet(() -> ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
     }
 
 
@@ -49,30 +41,23 @@ class BookController {
 
     @PostMapping("/update/{id}")
     public ResponseEntity<Book> update(@PathVariable Long id, @Valid @RequestBody Book book) {
-        ResponseEntity response;
-
         if (!bookService.findById(id).isPresent()) {
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else{
-            response = ResponseEntity.status(HttpStatus.CREATED).body(bookService.save(book));
+           return ResponseEntity.status(HttpStatus.CREATED).body(bookService.save(book));
         }
-        return response;
     }
 
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
-        ResponseEntity response;
-
         if (!bookService.findById(id).isPresent()) {
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else{
             bookService.deleteById(id);
-            response = ResponseEntity.status(HttpStatus.OK).body("Deleted.");
+            return ResponseEntity.status(HttpStatus.OK).body("Deleted.");
         }
-
-        return response;
     }
 }

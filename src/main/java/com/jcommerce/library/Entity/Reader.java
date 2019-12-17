@@ -3,42 +3,20 @@ package com.jcommerce.library.Entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@EqualsAndHashCode
-@ToString
+@Data
 @Table(name = "readers")
 public class Reader {
 
     @Id
     @Column(nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String surname;
+    private Long Id;
+    private String Name;
+    private String Surname;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+    @OneToMany(targetEntity=Book.class, mappedBy="Id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Book> BooksId;
 }
