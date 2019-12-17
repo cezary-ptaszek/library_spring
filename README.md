@@ -1,6 +1,6 @@
 # Library
 ### Description
-Basic project of the library with REST API. It contains books which can be borrowed by readers. Program includes basic CRUD functions. All data are saved in an external database.
+Basic project of the library. It contains books which can be borrowed by readers. Program includes CRUD functions. All data are saved in an external database.
 
 ## Technologies:
 * Java 8
