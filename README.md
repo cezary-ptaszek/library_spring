@@ -46,4 +46,4 @@ Basic project of the library. It contains books which can be borrowed by readers
 ## Compilation Command:
 * `mvn spring-boot:run`
 
-## #Test project, not complite
+## #Test project, not complete
