@@ -1,6 +1,6 @@
 # Library
 ### Description
-Basic project of the library with REST API. It contains books which can be borrowed by readers. Program includes basic CRUD functions. All data are saved in an external database.
+Basic project of the library. It contains books which can be borrowed by readers. Program includes CRUD functions. All data are saved in an external database.
 
 ## Technologies:
 * Java 8
@@ -16,34 +16,29 @@ Basic project of the library with REST API. It contains books which can be borro
 ##### Books:
 ```json
 {
-    "id": 31,
     "title": "Dziady cz.III",
-    "author": "Adam Mickiewicz",
-    "reader": null
+    "author": "Adam Mickiewicz"
 }
 ```
 * GET all: /book/all
-* GET one: /book/{id}
+* GET one: /book/{book_id}
 * POST create: /book/create
-* POST update: /book/update/{id}
-* DELETE delete: /book/delete/{id}
+* PUT borrow book: /book/{reader_id}/borrow/{book_id}
+* PUT give back book: /book/{reader_id}/give-back/{book_id}
+* PUT update: /book/update/{book_id}
+* DELETE delete: /book/delete/{book_id}
 ##### Readers:
 ```json
 {
-	"id": 21,
-	"name": "Adam",
-	"surname": "Kowalski"
+    "name": "Adam",
+    "surname": "Kowalski"
 }
 ```
 * GET all: /reader/all
-* GET one: /reader/{id}
+* GET one: /reader/{reader_id}
 * POST create: /reader/create
-* POST borrow book: /reader/{readerId}/borrow/book/{bookId}
-* POST give back book: /reader/{readerId}/giveBack/book/{bookId}
-* POST update: /reader/update/{id}
-* DELETE delete: /reader/delete/{id}
+* PUT update: /reader/update/{reader_id}
+* DELETE delete: /reader/delete/{reader_id}
 
 ## Compilation Command:
 * `mvn spring-boot:run`
-
-## #Test project, not complite
