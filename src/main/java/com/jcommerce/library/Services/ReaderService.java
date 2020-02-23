@@ -1,8 +1,8 @@
 package com.jcommerce.library.Services;
 
+import com.jcommerce.library.DAO.ReaderDAO;
 import com.jcommerce.library.Entity.Reader;
 import com.jcommerce.library.Repository.ReaderRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,29 +10,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
-public class ReaderService implements IReaderService {
+public class ReaderService implements ReaderDAO {
+
+    private ReaderRepository readerRepository;
 
     @Autowired
-    private ReaderRepository readerRespository;
+    public ReaderService(ReaderRepository readerRepository){
+        this.readerRepository = readerRepository;
+    }
 
     @Override
     public List<Reader> findAll() {
-        return readerRespository.findAll();
+        return readerRepository.findAll();
     }
 
     @Override
     public Optional<Reader> findById(Long id) {
-        return readerRespository.findById(id);
+        return readerRepository.findById(id);
     }
 
     @Override
     public Reader save(Reader reader) {
-        return readerRespository.save(reader);
+        return readerRepository.save(reader);
     }
 
     @Override
     public void deleteById(Long id) {
-        readerRespository.deleteById(id);
+        readerRepository.deleteById(id);
     }
 }

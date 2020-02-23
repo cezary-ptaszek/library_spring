@@ -3,7 +3,6 @@ package com.jcommerce.library.Entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -11,12 +10,11 @@ import java.util.Set;
 public class Reader {
 
     @Id
-    @Column(nullable=false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "reader_id", nullable = false)
     private Long Id;
-    private String Name;
-    private String Surname;
 
-    @OneToMany(targetEntity=Book.class, mappedBy="Id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Book> BooksId;
+    private String Name;
+
+    private String Surname;
 }
