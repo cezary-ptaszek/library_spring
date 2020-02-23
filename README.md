@@ -24,7 +24,7 @@ Basic project of the library. It contains books which can be borrowed by readers
 * GET one: /book/{book_id}
 * POST create: /book/create
 * PUT borrow book: /book/{reader_id}/borrow/{book_id}
-* PUT give back book: /book/{reader_id}/giveBack/{book_id}
+* PUT give back book: /book/{reader_id}/give-back/{book_id}
 * PUT update: /book/update/{book_id}
 * DELETE delete: /book/delete/{book_id}
 ##### Readers:
