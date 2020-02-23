@@ -23,7 +23,7 @@ Basic project of the library. It contains books which can be borrowed by readers
 * GET all: /book/all
 * GET one: /book/{book_id}
 * POST create: /book/create
-* POST update: /book/update/{book_id}
+* PUT update: /book/update/{book_id}
 * DELETE delete: /book/delete/{book_id}
 ##### Readers:
 ```json
@@ -35,9 +35,9 @@ Basic project of the library. It contains books which can be borrowed by readers
 * GET all: /reader/all
 * GET one: /reader/{reader_id}
 * POST create: /reader/create
-* POST borrow book: /reader/{reader_id}/borrow/book/{book_id}
-* POST give back book: /reader/{reader_id}/giveBack/book/{book_id}
-* POST update: /reader/update/{reader_id}
+* PUT borrow book: /reader/{reader_id}/borrow/book/{book_id}
+* PUT give back book: /reader/{reader_id}/giveBack/book/{book_id}
+* PUT update: /reader/update/{reader_id}
 * DELETE delete: /reader/delete/{reader_id}
 
 ## Compilation Command:
