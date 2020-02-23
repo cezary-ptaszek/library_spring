@@ -28,8 +28,8 @@ Basic project of the library. It contains books which can be borrowed by readers
 ##### Readers:
 ```json
 {
-	"name": "Adam",
-	"surname": "Kowalski"
+    "name": "Adam",
+    "surname": "Kowalski"
 }
 ```
 * GET all: /reader/all
