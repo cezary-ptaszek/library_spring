@@ -16,34 +16,29 @@ Basic project of the library. It contains books which can be borrowed by readers
 ##### Books:
 ```json
 {
-    "id": 31,
     "title": "Dziady cz.III",
-    "author": "Adam Mickiewicz",
-    "reader": null
+    "author": "Adam Mickiewicz"
 }
 ```
 * GET all: /book/all
-* GET one: /book/{id}
+* GET one: /book/{book_id}
 * POST create: /book/create
-* POST update: /book/update/{id}
-* DELETE delete: /book/delete/{id}
+* POST update: /book/update/{book_id}
+* DELETE delete: /book/delete/{book_id}
 ##### Readers:
 ```json
 {
-	"id": 21,
 	"name": "Adam",
 	"surname": "Kowalski"
 }
 ```
 * GET all: /reader/all
-* GET one: /reader/{id}
+* GET one: /reader/{reader_id}
 * POST create: /reader/create
-* POST borrow book: /reader/{readerId}/borrow/book/{bookId}
-* POST give back book: /reader/{readerId}/giveBack/book/{bookId}
-* POST update: /reader/update/{id}
-* DELETE delete: /reader/delete/{id}
+* POST borrow book: /reader/{reader_id}/borrow/book/{book_id}
+* POST give back book: /reader/{reader_id}/giveBack/book/{book_id}
+* POST update: /reader/update/{reader_id}
+* DELETE delete: /reader/delete/{reader_id}
 
 ## Compilation Command:
 * `mvn spring-boot:run`
-
-## #Test project, not complete
